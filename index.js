@@ -23,10 +23,6 @@ app.use(session({
 app.use(express.urlencoded({extended: false }));
 
 
-
-
-
-
 //configurar a aplicação para que ela publique tudo que está na pasta publico
 //assegure que o conteudo seja estático
 app.use(express.static('./publico'));

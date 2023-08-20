@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <span for="bairro" class="form-span">BAIRRO</span>
+                    <span for="bairro" class="form-span">ENDEREÇO</span>
                     <input type="text" class="form-control" id="bairro" name="bairro" value="" required>
                     <div class="valid-feedback">
                     OK!
@@ -61,27 +61,20 @@
                     Por favor, informe o email.
                     </div>
                 </div>
-
                 <div class="col-md-3">   
                     <span for="imagem">Documento(imagem)</span>
-                    <input type="file" id="imagem" name="imagem" accept="image/*" onchange="exibirSelecao(event)" required>
+                    <input type="file" id="imagem" name="imagem" accept="image/*" onchange="exibirSelecao(event)" required>  &nbsp;
                     <br>
                     <div id="selecao"></div>
                 </div>
-              
-
-
                 <div class="col-12">
-                    <button class="btn btn-primary" id='cadastrar' type="submit">SALVAR</button>
-                    <button class="btn btn-warning" id='atualizar' type="button" disabled>EDITAR</button>
-                    <button class="btn btn-danger" id='excluir' type="button" disabled>EXCLUIR</button>
-                    <button class="btn btn-secondary" type="button" onclick="history.back()">Voltar</button>
+                    <button class="btn btn-primary" id='cadastrar' type="submit">ENVIAR</button>
+                    <img src="./img/voltar.png" alt="Voltar" onclick="history.back()">
                 </div>
             </form>
         </div>
         <br/>
         <div id="mensagem">
-
         </div>
         </br>
         <div id="espacoTabela">
@@ -91,7 +84,7 @@
             function exibirSelecao(event) {
                 const selecaoDiv = document.getElementById('selecao');
                 selecaoDiv.innerHTML = '';
-    
+
                 const imagem = document.createElement('img');
                 imagem.style.maxWidth = '100%';
                 imagem.style.maxHeight = '200px';
@@ -99,6 +92,7 @@
                 selecaoDiv.appendChild(imagem);
             }
         </script>
+    
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="/js/scriptCliente.js"></script>

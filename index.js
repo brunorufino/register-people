@@ -32,7 +32,7 @@ app.use('/login', rotaLogin);
 app.use(autenticar, express.static('./protegido'));
 
 app.listen(port, host, () =>{
-    console.log('SERVIDOR RODANDO NA PORTA')
+    console.log('Servidor está ligado!!')
 })
 
 

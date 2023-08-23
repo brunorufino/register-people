@@ -4,7 +4,7 @@ const rotaLogin = Router();
 
 
 rotaLogin.get("/", (requisicao,resposta)=>{
-    resposta.redirect("/login.html");
+    resposta.redirect("/aluno5-ppiadsead/login.html");
 })
 .post("/", (requisicao, resposta) =>{
         const usuario = requisicao.body.usuario;

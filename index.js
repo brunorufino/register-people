@@ -29,16 +29,19 @@ app.use(express.urlencoded({extended: false }));
 app.use(express.static('./publico'));
 app.use('/login', rotaLogin);
 
-// configurar a aplicação para que seja necessário o usuário realizar login na aplicação
-app.use(autenticar, express.static('./protegido'));
-
-
 app.use('/dadospessoais', (req,res) =>{
     const dados =  new Dados();
     dados.consultar('').then((listaPessoas)=> {
         res.json(listaPessoas);
     })
 })
+
+
+// configurar a aplicação para que seja necessário o usuário realizar login na aplicação
+app.use(autenticar, express.static('./protegido'));
+
+
+
 
 app.listen(port, host, () =>{
     console.log('Servidor está ligado!!')

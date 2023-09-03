@@ -1,8 +1,8 @@
 import mysql from 'mysql2/promise'
 
-export default function conectar(){
+export default async function  conectar(){
     if(global.poolConexoes){
-        return global.poolConexoes.getConnection();
+        return await global.poolConexoes.getConnection();
     }
     global.poolConexoes = mysql.createPool({
         host:'localhost',
@@ -17,5 +17,5 @@ export default function conectar(){
         enableKeepAlive: true,
         keepAliveInitialDelay: 0
     })
-    return conexao = global.poolConexoes.getConnection();
+    return await global.poolConexoes.getConnection();
 }

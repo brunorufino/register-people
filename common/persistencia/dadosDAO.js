@@ -6,7 +6,7 @@ export default class DadosDAO{
 
     async gravar(dados){
             if(dados instanceof Dados){
-                const conexao = conectar();
+                const conexao = await conectar();
                 const sql = 'INSERT INTO dados (cpf,nome,rg ,endereco,cidade,telefone,email,documento) \
                               values (?,?,?,?,?,?,?,?)';
                 const parametros = [dados.cpf,dados.nome,dados.rg,dados.endereco, dados.cidade, dados.telefone, dados.email, dados.documento]
@@ -20,7 +20,7 @@ export default class DadosDAO{
        
         if(dados instanceof Dados)
         {
-            const conexao = conectar();
+            const conexao = await conectar();
             const sql = 'SELECT * FROM dados where nome LIKE ?'; 
             const parametros = ['%' + termo + '%'];
             await conexao.execute(sql,parametros);

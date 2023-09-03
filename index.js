@@ -2,6 +2,7 @@ import express from 'express'
 import autenticar from './seguranca/autenticacao.js';
 import session from 'express-session';
 import rotaLogin from './rotas/rotaLogin.js';
+import Dados from './common/entidades/dados.js';
 
 // Todas as interfaces disponiveis
 // sem restrições de conexão
@@ -30,6 +31,14 @@ app.use('/login', rotaLogin);
 
 // configurar a aplicação para que seja necessário o usuário realizar login na aplicação
 app.use(autenticar, express.static('./protegido'));
+
+
+app.use('/dadospessoais', (req,res) =>{
+    const dados =  new Dados();
+    dados.consultar('').then((listaPessoas)=> {
+        res.json(listaPessoas);
+    })
+})
 
 app.listen(port, host, () =>{
     console.log('Servidor está ligado!!')

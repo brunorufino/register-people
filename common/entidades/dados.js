@@ -1,3 +1,5 @@
+import dadosDAO from '../persistencia/dadosDAO.js';
+
 export default class Dados{
     #cpf
     #nome
@@ -83,5 +85,16 @@ toJSON(){
 }
 
 
+async gravar()
+{
+    const dDAO = new dadosDAO();
+    dDAO.gravar(this);
+}
+
+async consultar(termo)
+{
+    const dDAO = new dadosDAO();
+    return await dDAO.consultar(termo);
+}
 
 }

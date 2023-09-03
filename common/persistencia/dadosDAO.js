@@ -14,6 +14,19 @@ export default class DadosDAO{
             } 
     }
 
+
+    async excluir(dados)
+    {
+       
+        if(dados instanceof Dados)
+        {
+            const conexao = conectar();
+            const sql = 'SELECT * FROM dados where nome LIKE ?'; 
+            const parametros = ['%' + termo + '%'];
+            await conexao.execute(sql,parametros);
+        } 
+    } 
+
     async consultar(termo)
     {
         const conexao = conectar();

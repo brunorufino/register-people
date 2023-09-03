@@ -24,16 +24,18 @@ app.use(session({
 app.use(express.urlencoded({extended: false }));
 
 
-//configurar a aplicação para que ela publique tudo que está na pasta publico
-//assegure que o conteudo seja estático
-app.use(express.static('./publico'));
-
 app.use('/dadospessoais', (req,res) =>{
     const dados =  new Dados();
     dados.consultar('').then((listaPessoas)=> {
         res.json(listaPessoas);
     })
 })
+
+
+//configurar a aplicação para que ela publique tudo que está na pasta publico
+//assegure que o conteudo seja estático
+app.use(express.static('./publico'));
+
 
 app.use('/login', rotaLogin);
 

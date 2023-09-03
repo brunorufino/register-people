@@ -24,7 +24,7 @@ app.use(session({
 app.use(express.urlencoded({extended: false }));
 
 
-app.use('/dadospessoais', (req,res) =>{
+app.use('/dados', (req,res) =>{
     const dados =  new Dados();
     dados.consultar('').then((listaPessoas)=> {
         res.json(listaPessoas);

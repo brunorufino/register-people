@@ -27,7 +27,6 @@ app.use(express.urlencoded({extended: false }));
 //configurar a aplicação para que ela publique tudo que está na pasta publico
 //assegure que o conteudo seja estático
 app.use(express.static('./publico'));
-app.use('/login', rotaLogin);
 
 app.use('/dadospessoais', (req,res) =>{
     const dados =  new Dados();
@@ -35,6 +34,10 @@ app.use('/dadospessoais', (req,res) =>{
         res.json(listaPessoas);
     })
 })
+
+app.use('/login', rotaLogin);
+
+
 
 
 // configurar a aplicação para que seja necessário o usuário realizar login na aplicação

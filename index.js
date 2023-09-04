@@ -38,8 +38,8 @@ app.use(express.static('./publico'));
 
 app.use('/dados', (requisicao,resposta) =>{
     const dados =  new Dados();
-    dados.consultar('').then((listaPessoas)=> {
-        resposta.json(listaPessoas);
+    dados.consultar('').then((dadosPessoais)=> {
+        resposta.json(dadosPessoais);
     })
 })
 

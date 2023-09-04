@@ -35,17 +35,17 @@ app.use(express.urlencoded({extended: false }));
 app.use(express.static('./publico'));
 
 
-app.use('/login', rotaLogin);
 
-app.use('/dados', (req,res) =>{
+app.use('/dados', (requisicao,resposta) =>{
     const dados =  new Dados();
     dados.consultar('').then((listaPessoas)=> {
-        res.json(listaPessoas);
+        resposta.json(listaPessoas);
     })
 })
 
 
 
+app.use('/login', rotaLogin);
 
 // configurar a aplicação para que seja necessário o usuário realizar login na aplicação
 app.use(autenticar, express.static('./protegido'));

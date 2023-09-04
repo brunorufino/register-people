@@ -1,7 +1,6 @@
 import Dados from '../entidades/dados.js'
 import conectar from './conexao.js'
 
-
 export default class DadosDAO{
 
     async gravar(dados){

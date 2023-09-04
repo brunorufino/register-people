@@ -1,3 +1,4 @@
+import DadosDAO from '../persistencia/dadosDAO.js';
 import dadosDAO from '../persistencia/dadosDAO.js';
 
 export default class Dados{
@@ -87,13 +88,13 @@ toJSON(){
 
 async gravar()
 {
-    const dDAO = new dadosDAO();
+    const dDAO = new DadosDAO();
     dDAO.gravar(this);
 }
 
 async consultar(termo)
 {
-    const dDAO = new dadosDAO();
+    const dDAO = new DadosDAO();
     return await dDAO.consultar(termo);
 }
 

@@ -10,6 +10,17 @@ const host = '0.0.0.0';
 const port = 3205;
 const app = express();
 
+
+
+app.use('/dados', (req,res) =>{
+    const dados =  new Dados();
+    dados.consultar('').then((listaPessoas)=> {
+        res.json(listaPessoas);
+    })
+})
+
+
+
 //Criação de sessão para origemdas requisições
 app.use(session({
         secret: 'Minh4ChAveS3cret4' , 
@@ -24,12 +35,6 @@ app.use(session({
 app.use(express.urlencoded({extended: false }));
 
 
-app.use('/dados', (req,res) =>{
-    const dados =  new Dados();
-    dados.consultar('').then((listaPessoas)=> {
-        res.json(listaPessoas);
-    })
-})
 
 
 //configurar a aplicação para que ela publique tudo que está na pasta publico

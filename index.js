@@ -12,13 +12,6 @@ const app = express();
 
 
 
-app.use('/dados', (req,res) =>{
-    const dados =  new Dados();
-    dados.consultar('').then((listaPessoas)=> {
-        res.json(listaPessoas);
-    })
-})
-
 
 
 //Criação de sessão para origemdas requisições
@@ -43,6 +36,13 @@ app.use(express.static('./publico'));
 
 
 app.use('/login', rotaLogin);
+
+app.use('/dados', (req,res) =>{
+    const dados =  new Dados();
+    dados.consultar('').then((listaPessoas)=> {
+        res.json(listaPessoas);
+    })
+})
 
 
 

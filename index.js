@@ -36,11 +36,12 @@ app.use(express.static('./publico'));
 
 
 
-app.use('/dados', (requisicao,resposta) =>{
+app.use('/dados', (requisicao, resposta) =>{
     const dados =  new Dados();
-    dados.consultar('').then((dadosPessoais)=> {
-        resposta.json(dadosPessoais);
-    })
+    //dados.consultar('').then((dadosPessoais)=> {
+     //   resposta.json(dadosPessoais);
+  //  })
+    console.log("E dentro da funcai");
 })
 
 

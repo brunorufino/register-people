@@ -10,7 +10,7 @@ export default class Dados{
     #email
     #documento
 
-constructor (nome,cpf,rg,endereco,cidade,telefone,email,documento){
+constructor(nome,cpf,rg,endereco,cidade,telefone,email,documento){
     this.#cpf = cpf;
     this.nome = nome;
     this.rg = rg;

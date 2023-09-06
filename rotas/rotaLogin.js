@@ -22,4 +22,6 @@ rotaLogin.get("/", (requisicao,resposta)=>{
         }
     });
 
+
+    
 export default rotaLogin;

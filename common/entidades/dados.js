@@ -1,5 +1,4 @@
 import DadosDAO from '../persistencia/dadosDAO.js';
-import dadosDAO from '../persistencia/dadosDAO.js';
 
 export default class Dados{
     #cpf

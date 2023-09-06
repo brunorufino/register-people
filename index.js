@@ -11,9 +11,6 @@ const port = 3205;
 const app = express();
 
 
-
-
-
 //Criação de sessão para origemdas requisições
 app.use(session({
         secret: 'Minh4ChAveS3cret4' , 

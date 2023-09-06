@@ -28,7 +28,7 @@ export default class DadosDAO{
 
     async consultar(termo)
     {
-        const conexao = conectar();
+        const conexao = await conectar();
         if(!termo) termo = "";
         
         const listaClientes=[];

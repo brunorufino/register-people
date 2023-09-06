@@ -41,7 +41,6 @@ app.use('/dados', (requisicao, resposta) =>{
     dados.consultar('').then((dadosPessoais)=> {
         resposta.json(dadosPessoais);
     })
-    console.log("E dentro da funcai");
 })
 
 

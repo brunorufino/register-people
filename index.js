@@ -1,4 +1,4 @@
-import express from 'express'
+import express from 'express';
 import autenticar from './seguranca/autenticacao.js';
 import session from 'express-session';
 import rotaLogin from './rotas/rotaLogin.js';

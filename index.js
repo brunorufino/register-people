@@ -3,6 +3,9 @@ import autenticar from './seguranca/autenticacao.js';
 import session from 'express-session';
 import rotaLogin from './rotas/rotaLogin.js';
 import Dados from './common/entidades/dados.js';
+import rotaDados from './common/rotas/rotaDados.js';
+
+
 
 // Todas as interfaces disponiveis
 // sem restrições de conexão
@@ -13,16 +16,16 @@ const app = express();
 
 //Criação de sessão para origemdas requisições
 app.use(session({
-        secret: 'Minh4ChAveS3cret4' , 
-        resave: true, // a cada requisição da internet salva a sessão
-        saveUninitialized: false,
-        cookie: {
-            maxAge: 1000 * 60 * 30
-        }
+    secret: 'Minh4ChAveS3cret4',
+    resave: true, // a cada requisição da internet salva a sessão
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 30
+    }
 }));
 
 /// para que o express consiga extrair das requisições os valores dos formulários
-app.use(express.urlencoded({extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 
 
@@ -32,13 +35,7 @@ app.use(express.urlencoded({extended: false }));
 app.use(express.static('./publico'));
 
 
-
-app.use('/dados', (requisicao, resposta) =>{
-    const dados =  new Dados();
-    dados.consultar('').then((dadosPessoais)=> {
-        resposta.json(dadosPessoais);
-    })
-})
+app.use('/dados', rotaDados)
 
 
 
@@ -50,7 +47,7 @@ app.use(autenticar, express.static('./protegido'));
 
 
 
-app.listen(port, host, () =>{
+app.listen(port, host, () => {
     console.log('Servidor está ligado!!')
 })
 

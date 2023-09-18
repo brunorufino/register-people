@@ -2,7 +2,6 @@ import express from 'express';
 import autenticar from './seguranca/autenticacao.js';
 import session from 'express-session';
 import rotaLogin from './rotas/rotaLogin.js';
-import Dados from './common/entidades/dados.js';
 import rotaDados from './common/rotas/rotaDados.js';
 
 

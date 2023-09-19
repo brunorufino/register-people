@@ -1,8 +1,6 @@
-import { application, json } from "express";
-import Dados from "../entidades/dados.js"
+import Dados from "../entidades/dados.js";
+
 export default class DadosCtrl {
-
-
 
     gravar(requisicao, resposta) {
 
@@ -84,14 +82,15 @@ export default class DadosCtrl {
         }
 
     }
+
     excluir(requisicao, resposta) {
         resposta.type('application/json');
         if (requisicao.method === 'DELETE' && requisicao.is("application/json")) {
             const dados = requisicao.body;
             const cpf = dados.cpf;
             if (cpf) {
-                const dados = new Dados(cpf);
-                dados.excluir().then(() => {
+                const dados = new Dados();
+                dados.excluir(dados).then(() => {
                     resposta.json({
                         status: true,
                         mensagem: "Cliente excluído"

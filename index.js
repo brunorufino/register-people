@@ -12,6 +12,8 @@ const host = '0.0.0.0';
 const port = 3205;
 const app = express();
 
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 //Criação de sessão para origemdas requisições
 app.use(session({
@@ -24,17 +26,12 @@ app.use(session({
 }));
 
 /// para que o express consiga extrair das requisições os valores dos formulários
-app.use(express.urlencoded({ extended: false }));
-
-
 
 
 //configurar a aplicação para que ela publique tudo que está na pasta publico
 //assegure que o conteudo seja estático
 app.use(express.static('./publico'));
-
-
-app.use('/dados', rotaDados)
+app.use('/dados', rotaDados);
 
 
 
@@ -47,7 +44,7 @@ app.use(autenticar, express.static('./protegido'));
 
 
 app.listen(port, host, () => {
-    console.log('Servidor está ligado!!')
+    console.log('Servidor está ligado na porta :'+ port);
 })
 
 

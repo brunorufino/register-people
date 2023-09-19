@@ -97,4 +97,17 @@ async consultar(termo)
     return await dDAO.consultar(termo);
 }
 
+async excluir()
+{
+    const dDAO = new DadosDAO();
+    dDAO.excluir(this);
+}
+
+async atualizar()
+{
+    const dDAO = new DadosDAO();
+    dDAO.atualizar(this);
+}
+
+
 }

@@ -1,14 +1,14 @@
 import { Router } from "express";
-import DadosCtrl from "../controle/DadosCtrl.js";
+import ProfessorCtrl from "../controle/ProfessorCtrl.js";
 
-const rotaDados = Router();
-const dCTRL = new DadosCtrl();
+const rotaProfessor = Router();
+const dCTRL = new ProfessorCtrl();
 
 
-rotaDados.get('/:termo', dCTRL.consultar)
+rotaProfessor.get('/:termo', dCTRL.consultar)
     .get('/', dCTRL.consultar)
     .post('/', dCTRL.gravar)
     .put('/', dCTRL.atualizar)
     .delete('/', dCTRL.excluir)
 
-export default rotaDados;
+export default rotaProfessor;

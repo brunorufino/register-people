@@ -1,6 +1,6 @@
-import DadosDAO from '../persistencia/dadosDAO.js';
+import ProfessorDAO from '../persistencia/ProfessorDAO.js';
 
-export default class Dados{
+export default class Professor{
     #cpf
     #nome
     #rg 
@@ -87,25 +87,25 @@ toJSON(){
 
 async gravar()
 {
-    const dDAO = new DadosDAO();
+    const dDAO = new ProfessorDAO();
     dDAO.gravar(this);
 }
 
 async consultar(termo)
 {
-    const dDAO = new DadosDAO();
+    const dDAO = new ProfessorDAO();
     return await dDAO.consultar(termo);
 }
 
 async excluir()
 {
-    const dDAO = new DadosDAO();
+    const dDAO = new ProfessorDAO();
     dDAO.excluir(this);
 }
 
 async atualizar()
 {
-    const dDAO = new DadosDAO();
+    const dDAO = new ProfessorDAO();
     dDAO.atualizar(this);
 }
 

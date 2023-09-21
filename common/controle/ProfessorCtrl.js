@@ -1,25 +1,25 @@
-import Dados from "../entidades/dados.js";
+import Professor from "../entidades/Professor.js";
 
-export default class DadosCtrl {
+export default class ProfessorCtrl {
 
     gravar(requisicao, resposta) {
 
         resposta.type('application/json'); // mime type
         if (requisicao.method === 'POST' && requisicao.is("application/json")) {
-            const dados = requisicao.body;
-            const cpf = dados.cpf;
-            const nome = dados.nome;
-            const rg = dados.rg;
-            const endereco = dados.endereco;
-            const cidade = dados.cidade;
-            const telefone = dados.telefone;
-            const email = dados.email;
-            const documento = dados.documento;
+            const Professor = requisicao.body;
+            const cpf = Professor.cpf;
+            const nome = Professor.nome;
+            const rg = Professor.rg;
+            const endereco = Professor.endereco;
+            const cidade = Professor.cidade;
+            const telefone = Professor.telefone;
+            const email = Professor.email;
+            const documento = Professor.documento;
 
 
             if (cpf && nome && rg && endereco && cidade && telefone && email && documento) {
-                const dados = new Dados(cpf, nome, rg, endereco, cidade, telefone, email, documento);
-                dados.gravar().then(() => {
+                const Professor = new Professor(cpf, nome, rg, endereco, cidade, telefone, email, documento);
+                Professor.gravar().then(() => {
                     resposta.json({
                         status: true,
                         mensagem: "Cliente inserido com sucesso!!"
@@ -53,20 +53,20 @@ export default class DadosCtrl {
     atualizar(requisicao, resposta) {
         resposta.type('application/json'); // mime type
         if (requisicao.method === 'PUT' && requisicao.is("application/json")) {
-            const dados = requisicao.body;
-            const cpf = dados.cpf;
-            const nome = dados.nome;
-            const rg = dados.rg;
-            const endereco = dados.endereco;
-            const cidade = dados.cidade;
-            const telefone = dados.telefone;
-            const email = dados.email;
-            const documento = dados.documento;
+            const Professor = requisicao.body;
+            const cpf = Professor.cpf;
+            const nome = Professor.nome;
+            const rg = Professor.rg;
+            const endereco = Professor.endereco;
+            const cidade = Professor.cidade;
+            const telefone = Professor.telefone;
+            const email = Professor.email;
+            const documento = Professor.documento;
 
             if (cpf && nome && rg && endereco && cidade && telefone && email && documento) {
-                const dados = new Dados(cpf, nome, rg, endereco, cidade, telefone, email, documento);
+                const Professor = new Professor(cpf, nome, rg, endereco, cidade, telefone, email, documento);
 
-                dados.atualizar().then(() => {
+                Professor.atualizar().then(() => {
                     resposta.json({
                         status: true,
                         mensagem: "Cliente atualizado com sucesso."
@@ -86,11 +86,11 @@ export default class DadosCtrl {
     excluir(requisicao, resposta) {
         resposta.type('application/json');
         if (requisicao.method === 'DELETE' && requisicao.is("application/json")) {
-            const dados = requisicao.body;
-            const cpf = dados.cpf;
+            const Professor = requisicao.body;
+            const cpf = Professor.cpf;
             if (cpf) {
-                const dados = new Dados();
-                dados.excluir(dados).then(() => {
+                const Professor = new Professor();
+                Professor.excluir(Professor).then(() => {
                     resposta.json({
                         status: true,
                         mensagem: "Cliente excluído"
@@ -123,9 +123,9 @@ export default class DadosCtrl {
         if (resposta.method === "GET") {
             let termo = requisicao.query.termo;
             if (!termo) termo = "";
-            const dados = new Dados();
-            dados.consultar(termo).then((dadosPessoais) => {
-                resposta.json(dadosPessoais);
+            const Professor = new Professor();
+            Professor.consultar(termo).then((ProfessorPessoais) => {
+                resposta.json(ProfessorPessoais);
             }).catch((erro) => {
                 resposta.json({
                     status: true,

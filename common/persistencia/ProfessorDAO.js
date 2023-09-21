@@ -1,33 +1,33 @@
-import Dados from '../entidades/dados.js';
+import Professor from '../entidades/Professor.js';
 import conectar from './conexao.js';
 
-export default class DadosDAO {
+export default class ProfessorDAO {
 
-    async gravar(dados) {
-        if (dados instanceof Dados) {
+    async gravar(Professor) {
+        if (Professor instanceof Professor) {
             const conexao = await conectar();
-            const sql = 'INSERT INTO dados (cpf,nome,rg ,endereco,cidade,telefone,email,documento) \
+            const sql = 'INSERT INTO Professor (cpf,nome,rg ,endereco,cidade,telefone,email,documento) \
                               values (?,?,?,?,?,?,?,?)';
-            const parametros = [dados.cpf, dados.nome, dados.rg, dados.endereco, dados.cidade, dados.telefone, dados.email, dados.documento]
+            const parametros = [Professor.cpf, Professor.nome, Professor.rg, Professor.endereco, Professor.cidade, Professor.telefone, Professor.email, Professor.documento]
             await conexao.execute(sql, parametros);
           
         }
     }
 
-    async atualizar(dados) {
-        if (dados instanceof Dados) {
+    async atualizar(Professor) {
+        if (Professor instanceof Professor) {
             const conexao = await conectar();
-            const sql = 'UPDATE dados SET nome = ?, rg = ?, endereco = ?, cidade = ?, telefone = ?, email = ?, documento = ? WHERE cpf ?';
-            const parametros = [dados.cpf, dados.nome, dados.rg, dados.endereco, dados.cidade, dados.telefone, dados.email, dados.documento]
+            const sql = 'UPDATE Professor SET nome = ?, rg = ?, endereco = ?, cidade = ?, telefone = ?, email = ?, documento = ? WHERE cpf ?';
+            const parametros = [Professor.cpf, Professor.nome, Professor.rg, Professor.endereco, Professor.cidade, Professor.telefone, Professor.email, Professor.documento]
             await conexao.execute(sql, parametros);
             
         }
     }
 
-    async excluir(dados) {
-        if (dados instanceof Dados) {
+    async excluir(Professor) {
+        if (Professor instanceof Professor) {
             const conexao = await conectar();
-            const sql = 'DELETE FROM dados where cpf = ?';
+            const sql = 'DELETE FROM Professor where cpf = ?';
             const parametros = [termo];
             await conexao.execute(sql, parametros);
         }
@@ -38,13 +38,13 @@ export default class DadosDAO {
         if (!termo) termo = "";
 
         const listaClientes = [];
-        const sql = 'SELECT * FROM dados where nome LIKE ?';
+        const sql = 'SELECT * FROM Professor where nome LIKE ?';
         const parametros = ['%' + termo + '%'];
         const [rows] = await conexao.query(sql, parametros);
        
         for (const linha of rows) {
             const cliente =
-                new Dados(linha.nome,
+                new Professor(linha.nome,
                     linha.cpf,
                     linha.endereco,
                     linha.cidade,

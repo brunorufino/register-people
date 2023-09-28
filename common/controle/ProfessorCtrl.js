@@ -1,4 +1,4 @@
-import Professor from "../entidades/Professor.js";
+import Professor from "../entidades/professor.js";
 
 export default class ProfessorCtrl {
 

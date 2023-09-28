@@ -5,6 +5,6 @@ export  default function autenticar(requisicao , resposta, next){
             next(); 
         }
         else{
-            resposta.redirect('/aluno5-ppiadsead/login.html');
+            resposta.redirect('/login.html');
         }
 }

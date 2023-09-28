@@ -10,9 +10,9 @@
     <body>
         <br/>
         <div class="container w-60 border p-5">
-            <h1 style="text-align: center;">INFORMAÇÕES PESSOAIS</h1>
+            <h1 style="text-align: center;">CADASTRO DE DIRETORES</h1>
             <br>
-            <form id="formCadastro" method="POST" action="#" class="row g-3 needs-validation" novalidate>
+            <form id="formDiretor" method="#" action="#" class="row g-3 needs-validation" novalidate>
                 <div class="col-md-4">
                     <span for="nome" class="form-span">NOME COMPLETO</span>
                     <input type="text" class="form-control" id="nome" name="nome" value="" required>
@@ -22,21 +22,21 @@
                 </div>
                 <div class="col-md-2">
                     <span for="nome" class="form-span">CPF</span>
-                    <input type="cpf" class="form-control" id="nome" name="nome" value="" required>
+                    <input type="cpf" class="form-control" id="cpf" name="cpf" value="" required>
                     <div class="valid-feedback">
                     OK!
                     </div>
                 </div>
                 <div class="col-md-2">
                     <span for="endereco" class="form-span">RG</span>
-                    <input type="text" class="form-control" id="endereco" name="endereco" value="" required>
+                    <input type="text" class="form-control" id="rg" name="rg" value="" required>
                     <div class="valid-feedback">
                     OK!
                     </div>
                 </div>
                 <div class="col-md-4">
                     <span for="bairro" class="form-span">ENDEREÇO</span>
-                    <input type="text" class="form-control" id="bairro" name="bairro" value="" required>
+                    <input type="text" class="form-control" id="endereco" name="endereco" value="" required>
                     <div class="valid-feedback">
                     OK!
                     </div>
@@ -55,6 +55,27 @@
                     Por favor, informe o telefone.
                     </div>
                 </div>
+                <div class="col-md-2">
+                    <span for="telefone" class="form-span">COD.SETOR</span>
+                    <input type="text" class="form-control" id="codsetor" name="codsetor" maxlength="11" required>
+                    <div class="invalid-feedback">
+                    Por favor, informe o telefone.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <span for="telefone" class="form-span">DESCRIÇÃO SETOR</span>
+                    <input type="text" class="form-control" id="descricaosetor" name="descricaosetor" maxlength="11" required>
+                    <div class="invalid-feedback">
+                    Por favor, informe o telefone.
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <span for="telefone" class="form-span">BONUS %</span>
+                    <input type="text" class="form-control" id="bonus" name="bonus" maxlength="11" required>
+                    <div class="invalid-feedback">
+                    Por favor, informe o telefone.
+                    </div>
+                </div>
                 <div class="col-md-3">
                     <span for="email" class="form-span">EMAIL</span>
                     <input type="email" class="form-control" id="email" name="email" required>
@@ -62,14 +83,9 @@
                     Por favor, informe o email.
                     </div>
                 </div>
-                <div class="col-md-3">   
-                    <span for="imagem">Documento(imagem)</span>
-                    <input type="file" id="imagem" name="imagem" accept="image/*" onchange="exibirSelecao(event)" required>  &nbsp;
-                    <br>
-                    <div id="selecao"></div>
-                </div>
+               
                 <div class="col-12">
-                    <button class="btn btn-primary" id='cadastrar' type="submit">ENVIAR</button>
+                    <button class="btn btn-primary" id='cadastrar' type="button">ENVIAR</button>
                     <img src="./img/voltar.png" alt="Voltar" onclick="history.back()">
                 </div>
             </form>
@@ -96,5 +112,8 @@
     
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="/js/scriptCliente.js"></script>
+    
+    <!-- Quando a página for carregada no navegador-->
+    <script src="./scripts/scripts.js"></script>
+
 </html>

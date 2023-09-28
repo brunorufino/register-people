@@ -1,5 +1,6 @@
-import Professor from '../entidades/Professor.js';
+
 import conectar from './conexao.js';
+import Professor from '../entidades/professor.js';
 
 export default class ProfessorDAO {
 

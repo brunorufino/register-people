@@ -2,7 +2,13 @@ import express from 'express';
 import autenticar from './seguranca/autenticacao.js';
 import session from 'express-session';
 import rotaLogin from './rotas/rotaLogin.js';
-import rotaDados from './common/rotas/rotaDados.js';
+import rotaDiretor from './common/rotas/rotaDiretor.js';
+
+
+
+
+
+
 
 
 
@@ -31,8 +37,7 @@ app.use(session({
 //configurar a aplicação para que ela publique tudo que está na pasta publico
 //assegure que o conteudo seja estático
 app.use(express.static('./publico'));
-app.use('/dados', rotaDados);
-
+app.use('/diretor', rotaDiretor);
 
 
 app.use('/login', rotaLogin);
@@ -48,3 +53,36 @@ app.listen(port, host, () => {
 })
 
 
+/*
+
+Testes 
+
+let dir = new Diretor(90,"Santos",31231,"CGO","diretoria@liquidacao.com.br","CAMPUS 1 - Pres. Prudente","Bruno R","404314311",300,1899171231)
+
+//console.log(dir.toJSON());
+
+/*dir.gravar().then(()=>{
+    console.log("Diretor foi gravado com sucesso no banco");
+});
+
+*/
+
+/*dir.atualizar().then(()=>{
+    console.log("Diretor alterado com sucesso!!");
+})
+
+
+dir.excluir().then(()=>{
+    console.log("Diretor Excluído!!");
+})
+
+
+const dire = new Diretor();
+dire.consultar("Esmaelson").then((diretores)=>{
+    for(const diretor of diretores){
+        console.log(diretor.toJSON());
+    }
+});
+
+
+*/ 

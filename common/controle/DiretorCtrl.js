@@ -2,10 +2,7 @@ import Diretor from '../entidades/Diretor.js';
 
 //essa classa irá manipular controlar a entidade DIRETOR
 export default class DiretorCTRL{
-
-
-//Método responsável por gravar as informações dos diretores no banco
-    
+  
 gravar(requisicao, resposta){
     resposta.type("application/json");
 
@@ -25,8 +22,8 @@ gravar(requisicao, resposta){
 
 
         if(bonus && cidade && cpf && descricao_setor && email && endereco && nome && rg && setor && telefone){
-            // gravar as informações
-            const diretor = new Diretor(bonus,cidade,cpf,descricao_setor,email,endereco,nome,rg,setor,telefone);
+      
+            const diretor = new Diretor(cpf,cidade,bonus,descricao_setor,email,endereco,nome,rg,setor,telefone);
             diretor.gravar().then(()=>{
                 resposta.status(200).json({
                     status: true,
@@ -76,7 +73,7 @@ atualizar(requisicao, resposta){
 
         if(bonus && cidade && cpf && descricao_setor && email && endereco && nome && rg && setor && telefone){
             // gravar as informações
-            const diretor = new Diretor(bonus,cidade,cpf,descricao_setor,email,endereco,nome,rg,setor,telefone);
+            const diretor = new Diretor(cpf,cidade,bonus,descricao_setor,email,endereco,nome,rg,setor,telefone);
             diretor.atualizar().then(()=>{
                 resposta.status(200).json({
                     status: true,
@@ -112,9 +109,8 @@ excluir(requisicao, resposta){
     if(requisicao.method === "DELETE"  && requisicao.is('application/json')){
         const dados = requisicao.body;
         const cpf = dados.cpf;
-      
+        
         if(cpf){
-
             const diretor = new Diretor(cpf);
             diretor.excluir().then(()=>{
                 resposta.status(200).json({

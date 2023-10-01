@@ -6,12 +6,6 @@ import rotaDiretor from './common/rotas/rotaDiretor.js';
 
 
 
-
-
-
-
-
-
 // Todas as interfaces disponiveis
 // sem restrições de conexão
 const host = '0.0.0.0';
@@ -55,7 +49,7 @@ app.listen(port, host, () => {
 
 /*
 
-Testes 
+Testes na Classe DAO e Entidade
 
 let dir = new Diretor(90,"Santos",31231,"CGO","diretoria@liquidacao.com.br","CAMPUS 1 - Pres. Prudente","Bruno R","404314311",300,1899171231)
 

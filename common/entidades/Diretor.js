@@ -1,10 +1,10 @@
 import DiretorDAO from '../persistencia/DiretorDAO.js';
 
 export default class Diretor
-{
+{   
+    #cpf
     #bonus
     #cidade
-    #cpf
     #descricao_setor
     #email
     #endereco
@@ -13,11 +13,10 @@ export default class Diretor
     #setor
     #telefone
 
-    constructor(bonus,cidade,cpf,descricao_setor,email,endereco,nome,rg,setor,telefone){
-
-        this.#bonus = bonus;
-        this.#cidade = cidade;
+    constructor(cpf,cidade,bonus,descricao_setor,email,endereco,nome,rg,setor,telefone){
         this.#cpf = cpf;
+        this.#cidade = cidade;
+        this.#bonus = bonus;
         this.#descricao_setor = descricao_setor;
         this.#email = email;
         this.#endereco = endereco;
@@ -28,12 +27,11 @@ export default class Diretor
 
     }
 
-
     toJSON(){
         return {
-            bonus: this.#bonus,
-            cidade: this.#cidade, 
             cpf: this.#cpf,
+            cidade: this.#cidade, 
+            bonus: this.#bonus,
             descricao_setor:this.#descricao_setor,
             email:this.#email,
             endereco:this.#endereco,
@@ -123,7 +121,6 @@ export default class Diretor
         this.#telefone = novoTelefone;
     }
  
-
     async gravar(){
         const diretorDAO = new DiretorDAO();
         diretorDAO.incluir(this);

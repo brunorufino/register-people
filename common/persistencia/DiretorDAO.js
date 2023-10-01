@@ -23,7 +23,7 @@ export default class DiretorCtrl{
         async excluir(diretor){
             if(diretor instanceof Diretor){
                 const conexao = await conectar();
-                const sql = "DELETE FROM diretor WHERE cpf = ?";
+                const sql = "DELETE FROM diretor WHERE cpf=?";
                 const valores = [diretor.cpf];
                 await conexao.query(sql,valores);
             }
@@ -38,7 +38,7 @@ export default class DiretorCtrl{
 
 
             for(const row of rows){
-                const diretor = new Diretor(row['bonus'],row['cidade'],row['cpf'],row['descricao_setor'],row['email'],row['endereco'],row['nome'],row['rg'],row['setor'],row['telefone']);
+                const diretor = new Diretor(row['cpf'],row['cidade'],row['bonus'],row['descricao_setor'],row['email'],row['endereco'],row['nome'],row['rg'],row['setor'],row['telefone']);
                 listaDiretor.push(diretor);
             }
 

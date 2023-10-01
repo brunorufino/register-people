@@ -14,7 +14,7 @@ rotaLogin.get("/", (requisicao,resposta)=>{
         {
             requisicao.session.usuarioLogado = true;
     
-            resposta.redirect("cadastroDiretor.html");
+            resposta.redirect("/aluno5-ppiadsead/cadastroDiretor.html");
         }
         else
         {

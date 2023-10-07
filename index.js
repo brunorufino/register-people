@@ -11,7 +11,7 @@ import rotaDados from './common/rotas/rotaDados.js';
 const host = '0.0.0.0';
 const port = 3205;
 const app = express();
-
+app.use(express.json());
 
 //Criação de sessão para origemdas requisições
 app.use(session({
